@@ -49,11 +49,11 @@ end
 //always for output
 always @(current_st) begin
     case(current_st)
-        S0: begin hwy <= GREEN; cntry <= RED; end
-        S1: begin hwy <= YELLOW; cntry <= RED; end
-        S2: begin hwy <= RED; cntry <= RED; end
-        S3: begin hwy <= RED; cntry <= GREEN; end
-        S4: begin hwy <= RED; cntry <= YELLOW; end
+        S0: begin hwy = GREEN; cntry = RED; end
+        S1: begin hwy = YELLOW; cntry = RED; end
+        S2: begin hwy = RED; cntry = RED; end
+        S3: begin hwy = RED; cntry = GREEN; end
+        S4: begin hwy = RED; cntry = YELLOW; end
     endcase    
 end
 endmodule

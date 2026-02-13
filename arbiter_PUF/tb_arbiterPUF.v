@@ -4,7 +4,7 @@ module tb_arbiter;
   reg reset;
   reg [N-1:0]sel;
   wire out;
-  test #(N) dut (in,reset,sel,out);
+  arbiter #(N) dut (in,reset,sel,out);
 
   initial begin
     $dumpfile("dump.vcd");

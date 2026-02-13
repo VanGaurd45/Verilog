@@ -1,4 +1,4 @@
-module tb_test;
+module tb_arbiter;
   parameter N = 128;
   reg in;
   reg reset;

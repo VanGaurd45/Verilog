@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module test #(parameter N = 128) (
+module arbiter #(parameter N = 128) (
   input in,reset,[N-1:0]sel,
   output out
 );

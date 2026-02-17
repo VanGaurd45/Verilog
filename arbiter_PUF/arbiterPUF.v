@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module arbiter #(parameter N = 4)(input in, input [N-1:0] sel, input reset, output out );
+module arbiter #(parameter N = 128)(input in, input [N-1:0] sel, input reset, output out );
     
     wire [N-1:0]up;
     wire [N-1:0]down;

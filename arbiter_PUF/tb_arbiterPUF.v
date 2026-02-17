@@ -1,22 +1,16 @@
 module tb_arbiter;
   parameter N = 128;
-  reg in;
-  reg reset;
+  reg in, reset;
   reg [N-1:0]sel;
   wire out;
-  arbiter #(N) dut (in,reset,sel,out);
+  
+  arbiter #(N) dut (in,sel,reset,out);
 
   initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars(0);
-    in = 0;
-    reset = 0; 
-    sel = 0;
-  
-    repeat (100) begin   
+    in = 0;reset = 0; sel = 0;
+    repeat (50) begin   
       #10; in = $random;    
-      sel = $random;  
-      $display("input = %b, challenge = %b, response = %b",in,sel,out); 
+      sel = $random;
     end
     #10; $finish;
   end

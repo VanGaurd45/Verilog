@@ -22,7 +22,7 @@ module ALU(
     assign mux1 = ALU_control[0] ? ~B : B;
     assign {Cout, sum} = A + mux1 + ALU_control[0];
     
-    // 2. Combinatorial Mux for Operation Selection
+
     always @(*) begin
         case(ALU_control)
             4'b0000:  result_wire = sum;                                // addition
@@ -38,12 +38,11 @@ module ALU(
         endcase
     end 
     
-    // 3. Combinatorial Flag Logic 
-    // IMPORTANT: These must look at 'result_wire' to be ready for the clock edge
+    // Combinatorial Flag Logic 
     assign Z_wire = (result_wire == 32'b0);
     assign N_wire = result_wire[31]; 
     
-    // Carry is typically only valid for add/sub (Control 000x)
+    // Carry is only valid for add/sub (Control 000x)
     assign C_wire = (ALU_control[3:1] == 3'b000) & Cout;
     
     // Overflow logic: Checks if two like signs produced a different sign
